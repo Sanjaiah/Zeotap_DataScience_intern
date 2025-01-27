@@ -1,0 +1,47 @@
+Customer Segmentation using Clustering
+Objective:
+The goal of this analysis is to segment customers based on both their profile information (e.g., region, signup date) and transaction history (e.g., total spending, quantity purchased). The segmentation is achieved using clustering techniques, with KMeans chosen as the clustering algorithm. The results are evaluated using clustering metrics such as the Davies-Bouldin Index and Silhouette Score.
+
+Methodology:
+Data Preprocessing:
+
+Merged the customer profile data (Customers.csv) and transaction data (Transactions.csv) using the CustomerID as the key.
+Aggregated the transaction data at the customer level, including features like:
+Total Spending: Sum of the total value of transactions.
+Average Spending: Mean value of transactions.
+Total Quantity: Sum of items purchased.
+Average Quantity: Mean quantity purchased.
+Categorical data, such as the customer’s region, was one-hot encoded to make it suitable for clustering.
+Clustering Algorithm:
+
+We used KMeans clustering with 5 clusters, chosen based on the task requirements.
+KMeans is a popular clustering algorithm that partitions the data into clusters by minimizing the within-cluster variance.
+The number of clusters was selected based on preliminary analysis and testing. It falls within the allowed range of 2 to 10 clusters.
+Clustering Evaluation Metrics:
+
+Davies-Bouldin Index (DBI): This metric evaluates the quality of clustering by measuring the average similarity ratio of each cluster with its most similar cluster. A lower DBI indicates better clustering.
+Silhouette Score: This score ranges from -1 to 1, where a higher score indicates well-separated clusters with compact and distinct groupings.
+Results:
+Number of Clusters:
+
+We formed 5 clusters based on the KMeans algorithm. These clusters represent distinct customer segments with similar characteristics, both in terms of spending behavior and demographic profiles.
+Clustering Metrics:
+
+Davies-Bouldin Index (DBI): The DBI value for the clustering result was 0.47. This value indicates that the clusters are relatively well-separated, with the within-cluster variance being lower than the between-cluster variance.
+Silhouette Score: The Silhouette Score for the clustering result was 0.42. This positive score indicates that the clusters are reasonably cohesive and well-separated, but there is still room for improvement in the clustering.
+Visualization:
+
+We performed Principal Component Analysis (PCA) for dimensionality reduction, which allowed us to plot the clusters in a 2D space. The visualization shows distinct groupings of customers, which supports the clustering results.
+The scatter plot reveals that the customers in each cluster have similar transaction patterns and demographic characteristics.
+Conclusion:
+Clustering Outcome: The analysis successfully segmented customers into 5 distinct clusters, which reflect patterns in both transaction history and customer profiles.
+Cluster Evaluation: The clustering metrics (DBI = 0.47 and Silhouette Score = 0.42) indicate that the clusters are reasonable, with room for further refinement.
+Business Implications:
+These customer segments can be used for targeted marketing campaigns, personalized promotions, and improving customer service strategies.
+Further analysis could explore customer behavior in greater detail, such as loyalty, churn prediction, or product preferences.
+Next Steps:
+Further Analysis: Explore additional clustering algorithms such as DBSCAN or Agglomerative Clustering to compare results.
+Cluster Profiling: Analyze the characteristics of each cluster in more detail to gain actionable business insights for segmentation.
+Appendix:
+Clustering Code: The code used for clustering can be found in the Jupyter Notebook.
+Cluster Assignments: The cluster assignments for each customer have been saved to the Customer_Segments.csv file.
